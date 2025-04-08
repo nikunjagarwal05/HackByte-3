@@ -1,0 +1,32 @@
+
+@tailwind utilities;
+
+@font-face {
+    font-family: 'crux';
+    src: url('./fonts/medodica.regular.otf') format('opentype');
+
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'regs';
+    src: url('./fonts/coders-crux.regular.ttf') format('truetype');
+    
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'chill';
+    src: url('./fonts/Chillax-Regular.otf') format('opentype');
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bespoke';
+    src: url('./fonts/BespokeSerif-Regular.otf') format('opentype');
+
+    font-weight: normal;
+    font-style: normal;
+}
