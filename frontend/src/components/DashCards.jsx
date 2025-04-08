@@ -14,7 +14,7 @@ const DashCards = ({ unit = "UNIT 1", subtitle = "", section = "section-1" }) =>
   return (
     <div className="flex gap-4">
       <div
-        className="flex flex-col gap-2 bg-[#538031] rounded-3xl p-4 w-md cursor-pointer hover:brightness-110 transition"
+        className="flex flex-col gap-2 bg-[url('/assets/green-card.svg')] bg-cover bg-center rounded-3xl p-4 w-md cursor-pointer hover:brightness-110 transition"
         onClick={handleClick}
       >
         <p className="text-white text-lg font-bold">{unit}</p>

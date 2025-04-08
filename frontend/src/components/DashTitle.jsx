@@ -11,7 +11,7 @@ const DashTitle = ({ section = "SECTION 1", title = "Use basic phrases", cards =
 
   return (
     <div className="flex flex-col gap-10 justify-center items-center">
-      <div className="w-xl bg-[#644c71] rounded-2xl p-7 mt-10 flex flex-col items-center">
+      <div className="w-xl bg-[url('/assets/purple-card.svg')] bg-cover bg-center rounded-2xl p-7 mt-10 flex flex-col items-center">
         <p className="text-md font-semibold text-white">{section}</p>
         <h1 className="text-3xl font-bold text-white text-center">{title}</h1>
       </div>
@@ -33,7 +33,7 @@ const DashTitle = ({ section = "SECTION 1", title = "Use basic phrases", cards =
         {/* Yellow Exam Card */}
         <div className="flex justify-center items-center border-b-1 pb-14">
         <Link to={`/dashboard/${sectionPath}/exam`}>
-            <div className="flex flex-col gap-2 justify-center items-center bg-[#c49041] rounded-2xl p-4 w-md cursor-pointer hover:scale-105 transition">
+            <div className="flex flex-col gap-2 justify-center items-center bg-[url('/assets/yellow-card.svg')] bg-cover bg-center  rounded-2xl p-4 w-md cursor-pointer hover:scale-105 transition">
                 <p className="text-white text-lg font-bold">EXAM</p>
             </div>
         </Link>

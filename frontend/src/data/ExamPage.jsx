@@ -86,22 +86,38 @@ const ExamPage = () => {
   const current = questions[currentQuestion];
 
   return (
-    <div className="h-screen bg-yellow-50 flex items-center justify-center p-4">
-      <div className="w-[70vw] h-[70vh] bg-white rounded-2xl shadow-xl p-6 space-y-4">
-        <div className="flex justify-between items-center">
-          <div className="text-lg font-medium">❤️ {hearts}</div>
-          <div className="text-lg font-bold">Question {currentQuestion + 1} / {questions.length}</div>
+    <div className="h-screen bg-[#fefbe9] flex items-center justify-center px-4 py-8">
+      <div className="w-full max-w-4xl bg-white rounded-3xl shadow-[8px_8px_0px_rgba(0,0,0,0.2)] p-8 border-4 border-black relative">
+        
+        {/* Header */}
+        <div className="flex justify-between items-center mb-4">
+          <div className="text-xl font-bold text-red-500">❤️ {hearts}</div>
+          <div className="text-lg font-bold text-gray-800">
+            Question {currentQuestion + 1} / {questions.length}
+          </div>
         </div>
-        <h2 className="text-3xl font-bold mb-10">{current.question}</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+        {/* Progress bar */}
+        <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden mb-6">
+          <div
+            className="h-full bg-green-500 transition-all duration-300"
+            style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
+          ></div>
+        </div>
+
+        {/* Question */}
+        <h2 className="text-3xl font-extrabold text-gray-900 mb-6">{current.question}</h2>
+
+        {/* Options */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           {current.options.map((option, index) => (
             <button
               key={index}
               onClick={() => handleOptionClick(option)}
-              className={`px-6 py-6 rounded-xl border text-left transition-all duration-150 ${
+              className={`w-full px-6 py-4 rounded-xl border-4 text-lg font-semibold text-left transition-all duration-150 ${
                 selectedOption === option
-                  ? 'bg-blue-500 text-white border-blue-500'
-                  : 'bg-gray-100 hover:bg-blue-100 border-gray-300'
+                  ? 'bg-green-600 text-white border-green-700 shadow-lg'
+                  : 'bg-[#f0f0f0] hover:bg-yellow-100 border-black'
               }`}
               disabled={showFeedback}
             >
@@ -110,17 +126,21 @@ const ExamPage = () => {
           ))}
         </div>
 
+        {/* Feedback */}
         {showFeedback && (
-          <div className={`text-center font-semibold ${feedback.startsWith('✅') ? 'text-green-600' : 'text-red-500'}`}>
+          <div className={`text-center font-bold text-lg mb-4 ${
+            feedback.startsWith('✅') ? 'text-green-600' : 'text-red-600'
+          }`}>
             {feedback}
           </div>
         )}
 
+        {/* Submit Button */}
         <div className="text-center">
           <button
             onClick={handleNext}
             disabled={!selectedOption || showFeedback}
-            className="mt-4 px-6 py-2 bg-green-500 text-white rounded-xl shadow hover:bg-green-600 disabled:opacity-50"
+            className="mt-2 px-8 py-3 bg-blue-600 text-white text-lg rounded-xl shadow-md hover:bg-blue-700 transition disabled:opacity-50"
           >
             Submit & Next
           </button>
